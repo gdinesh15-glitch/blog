@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard – BlogSpace</title>
+  <meta name="description" content="User dashboard to manage written blogs and view platform updates.">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✍️</text></svg>">
+</head>
+<body>
+
+  <!-- ==================== HEADER / NAVBAR ==================== -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <div class="brand-icon">✍</div>
+        <span>Blog<span class="accent">Space</span></span>
+      </a>
+
+      <!-- Navigation Menu (Links appear strictly ONCE) -->
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="create-blog.html" class="nav-link">Create Blog</a>
+        <a href="dashboard.html" class="nav-link active">Dashboard</a>
+        <button type="button" class="btn btn-outline btn-sm" id="logout-btn">Logout</button>
+      </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="nav-toggle" aria-label="Toggle navigation menu" id="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==================== DASHBOARD HEADER ==================== -->
+  <div class="dashboard-header">
+    <div class="container dashboard-header-inner">
+      <div class="dashboard-welcome">
+        <h1>Welcome, <span id="user-welcome-name">Student</span> 👋</h1>
+        <p>Manage your published blogs and track your contributions.</p>
+      </div>
+      <div>
+        <a href="create-blog.html" class="btn btn-primary">
+          ✍️ Write New Blog
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="section" style="padding-top: 1.5rem;">
+    <div class="container">
+      
+      <!-- Realistic Student Stats -->
+      <div class="stats-grid">
+        <!-- Total Platform Blogs -->
+        <div class="stat-card">
+          <div class="stat-icon">📚</div>
+          <div class="stat-info">
+            <h4 id="stat-total-blogs">0</h4>
+            <p>Total Blogs</p>
+          </div>
+        </div>
+
+        <!-- My Published Blogs -->
+        <div class="stat-card">
+          <div class="stat-icon">📝</div>
+          <div class="stat-info">
+            <h4 id="stat-my-blogs">0</h4>
+            <p>My Blogs</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: My Blogs -->
+      <section style="margin-bottom: 3rem;">
+        <div class="dashboard-section-header">
+          <h2>My Blogs</h2>
+          <a href="create-blog.html" class="btn btn-outline-primary btn-sm">+ Create Blog</a>
+        </div>
+
+        <!-- List of user's blogs -->
+        <div class="user-posts-list" id="user-posts-list">
+          <!-- Populated dynamically by script.js -->
+        </div>
+      </section>
+
+      <!-- Section: Recent Blogs -->
+      <section>
+        <div class="dashboard-section-header">
+          <h2>Recent Blogs</h2>
+          <a href="index.html#featured-articles" class="btn btn-outline btn-sm">View All &rarr;</a>
+        </div>
+
+        <div class="blogs-grid" id="recent-platform-blogs">
+          <!-- Populated dynamically by script.js -->
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand">
+            <div class="brand-icon">✍</div>
+            <span>Blog<span class="accent">Space</span></span>
+          </a>
+          <p>A simple responsive blog application built with HTML5, CSS3, and Vanilla JavaScript.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="create-blog.html">Create Blog</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Technology</h4>
+          <ul class="footer-links">
+            <li><span>HTML5</span></li>
+            <li><span>CSS3</span></li>
+            <li><span>JavaScript</span></li>
+            <li><span>LocalStorage</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 BlogSpace. A simple responsive blog application.</p>
+        <p>Built with HTML5, CSS3 & JavaScript</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Script -->
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Blog – BlogSpace</title>
+  <meta name="description" content="Write and publish a new blog post on BlogSpace.">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✍️</text></svg>">
+</head>
+<body>
+
+  <!-- ==================== HEADER / NAVBAR ==================== -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <div class="brand-icon">✍</div>
+        <span>Blog<span class="accent">Space</span></span>
+      </a>
+
+      <!-- Navigation Menu (Links appear strictly ONCE) -->
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="create-blog.html" class="nav-link active">Create Blog</a>
+        <a href="login.html" class="nav-link">Login</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+      </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="nav-toggle" aria-label="Toggle navigation menu" id="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="section">
+    <div class="container container-narrow">
+      <div class="section-title-wrap" style="margin-bottom: 2rem;">
+        <span class="section-badge">New Post</span>
+        <h1 class="section-title">Create a New Blog</h1>
+        <p class="section-desc">Share your learning experience, project documentation, or coding tutorial.</p>
+      </div>
+
+      <!-- Create Blog Card / Form -->
+      <div class="auth-card" style="max-width: 100%; padding: 2rem;">
+        <form id="create-blog-form" novalidate>
+          
+          <!-- Blog Title -->
+          <div class="form-group">
+            <label for="blog-title" class="form-label">
+              Blog Title <span class="req">*</span>
+            </label>
+            <input
+              type="text"
+              id="blog-title"
+              class="form-control"
+              placeholder="e.g., How I Solved Flexbox Alignment in CSS"
+              required
+            >
+          </div>
+
+          <!-- Author & Category Grid -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <!-- Author Name -->
+            <div class="form-group">
+              <label for="blog-author" class="form-label">
+                Author Name <span class="req">*</span>
+              </label>
+              <input
+                type="text"
+                id="blog-author"
+                class="form-control"
+                placeholder="Your Name"
+                required
+              >
+            </div>
+
+            <!-- Category -->
+            <div class="form-group">
+              <label for="blog-category" class="form-label">
+                Category <span class="req">*</span>
+              </label>
+              <select id="blog-category" class="form-control" required>
+                <option value="">Select Category</option>
+                <option value="Web Development">Web Development</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Programming">Programming</option>
+                <option value="Technology">Technology</option>
+                <option value="Student Life">Student Life</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Cover Image URL -->
+          <div class="form-group">
+            <label for="blog-image-url" class="form-label">
+              Cover Image URL (Optional)
+            </label>
+            <input
+              type="url"
+              id="blog-image-url"
+              class="form-control"
+              placeholder="https://images.unsplash.com/... (optional fallback provided)"
+            >
+            
+            <!-- Quick preset picks for easy student testing -->
+            <div style="margin-top: 0.4rem; font-size: 0.8rem; color: var(--text-muted);">
+              Quick image picks:
+              <div class="preset-images">
+                <span class="preset-chip" data-img="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1000&q=80">💻 Coding</span>
+                <span class="preset-chip" data-img="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1000&q=80">🌐 Web</span>
+                <span class="preset-chip" data-img="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80">🎓 College</span>
+                <span class="preset-chip" data-img="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1000&q=80">⌨️ Programming</span>
+              </div>
+            </div>
+
+            <!-- Live Image Preview Box -->
+            <div class="image-preview-container" id="image-preview-box">
+              <div class="image-preview-placeholder" id="image-placeholder">
+                <span>Enter an image URL or click a sample chip above to preview</span>
+              </div>
+              <img id="image-preview" alt="Cover Preview">
+            </div>
+          </div>
+
+          <!-- Blog Content -->
+          <div class="form-group">
+            <label for="blog-content" class="form-label">
+              Blog Content <span class="req">*</span>
+            </label>
+            <textarea
+              id="blog-content"
+              class="form-control"
+              rows="8"
+              placeholder="Write your blog post here...
+
+Tips:
+- Use '## Heading' for section titles
+- Use '> quote' for callouts
+- Share code examples and what you learned"
+              required
+            ></textarea>
+          </div>
+
+          <!-- Form Buttons -->
+          <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.5rem;">
+            <a href="dashboard.html" class="btn btn-outline">Cancel</a>
+            <button type="submit" class="btn btn-primary" id="publish-btn">
+              Publish Blog &rarr;
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand">
+            <div class="brand-icon">✍</div>
+            <span>Blog<span class="accent">Space</span></span>
+          </a>
+          <p>A simple responsive blog application built with HTML5, CSS3, and Vanilla JavaScript.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="create-blog.html">Create Blog</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Technology</h4>
+          <ul class="footer-links">
+            <li><span>HTML5</span></li>
+            <li><span>CSS3</span></li>
+            <li><span>JavaScript</span></li>
+            <li><span>LocalStorage</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 BlogSpace. A simple responsive blog application.</p>
+        <p>Built with HTML5, CSS3 & JavaScript</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Script -->
+  <script src="js/script.js"></script>
+</body>
+</html>

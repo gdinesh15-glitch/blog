@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register – BlogSpace</title>
+  <meta name="description" content="Create an account to write and manage blogs on BlogSpace.">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✍️</text></svg>">
+</head>
+<body>
+
+  <!-- ==================== HEADER / NAVBAR ==================== -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <div class="brand-icon">✍</div>
+        <span>Blog<span class="accent">Space</span></span>
+      </a>
+
+      <!-- Navigation Menu (Links appear strictly ONCE) -->
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="create-blog.html" class="nav-link">Create Blog</a>
+        <a href="login.html" class="nav-link">Login</a>
+        <a href="register.html" class="btn btn-primary btn-sm active">Register</a>
+      </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="nav-toggle" aria-label="Toggle navigation menu" id="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==================== AUTHENTICATION WRAPPER ==================== -->
+  <main class="auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-header">
+        <h1>Create an Account</h1>
+        <p>Sign up to start publishing blogs on BlogSpace.</p>
+      </div>
+
+      <form id="register-form" novalidate>
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="register-name" class="form-label">
+            Full Name <span class="req">*</span>
+          </label>
+          <input
+            type="text"
+            id="register-name"
+            class="form-control"
+            placeholder="e.g. Rahul Sharma"
+            autocomplete="name"
+            required
+          >
+        </div>
+
+        <!-- Email Address -->
+        <div class="form-group">
+          <label for="register-email" class="form-label">
+            Email Address <span class="req">*</span>
+          </label>
+          <input
+            type="email"
+            id="register-email"
+            class="form-control"
+            placeholder="you@college.edu"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="register-password" class="form-label">
+            Password <span class="req">*</span>
+          </label>
+          <input
+            type="password"
+            id="register-password"
+            class="form-control"
+            placeholder="Minimum 6 characters"
+            autocomplete="new-password"
+            required
+          >
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group">
+          <label for="register-confirm-password" class="form-label">
+            Confirm Password <span class="req">*</span>
+          </label>
+          <input
+            type="password"
+            id="register-confirm-password"
+            class="form-control"
+            placeholder="Re-enter password"
+            autocomplete="new-password"
+            required
+          >
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary btn-block" style="margin-top: 1.25rem;" id="register-submit-btn">
+          Register
+        </button>
+      </form>
+
+      <!-- Link to Login -->
+      <div class="auth-footer">
+        Already have an account?
+        <a href="login.html"><strong>Log in here</strong></a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand">
+            <div class="brand-icon">✍</div>
+            <span>Blog<span class="accent">Space</span></span>
+          </a>
+          <p>A simple responsive blog application built with HTML5, CSS3, and Vanilla JavaScript.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="create-blog.html">Create Blog</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Technology</h4>
+          <ul class="footer-links">
+            <li><span>HTML5</span></li>
+            <li><span>CSS3</span></li>
+            <li><span>JavaScript</span></li>
+            <li><span>LocalStorage</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 BlogSpace. A simple responsive blog application.</p>
+        <p>Built with HTML5, CSS3 & JavaScript</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Script -->
+  <script src="js/script.js"></script>
+</body>
+</html>
