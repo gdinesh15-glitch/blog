@@ -1,164 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BlogSpace – A Simple Responsive Blog Application</title>
-  <meta name="description" content="A simple responsive blog application for sharing technical tutorials, project experiences, and programming concepts.">
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✍️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogSpace – A Simple Responsive Blog Application</title>
+    <meta name="description" content="A simple responsive blog application for sharing technical tutorials, project experiences, and programming concepts.">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✍️</text></svg>">
 </head>
+
 <body>
 
-  <!-- ==================== HEADER / NAVBAR ==================== -->
-  <header class="navbar">
-    <div class="container nav-container">
-      <a href="index.html" class="brand">
-        <div class="brand-icon">✍</div>
-        <span>Blog<span class="accent">Space</span></span>
-      </a>
+    <!-- ==================== HEADER / NAVBAR ==================== -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand">
+                <div class="brand-icon">✍</div>
+                <span>Blog<span class="accent">Space</span></span>
+            </a>
 
-      <!-- Navigation Menu (Links appear strictly ONCE) -->
-      <nav class="nav-menu" id="nav-menu">
-        <a href="index.html" class="nav-link active">Home</a>
-        <a href="create-blog.html" class="nav-link">Create Blog</a>
-        <a href="login.html" class="nav-link">Login</a>
-        <a href="register.html" class="btn btn-primary btn-sm">Register</a>
-      </nav>
+            <!-- Navigation Menu (Links appear strictly ONCE) -->
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="create-blog.html" class="nav-link">Create Blog</a>
+                <a href="login.html" class="nav-link">Login</a>
+                <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+            </nav>
 
-      <!-- Mobile Hamburger Button -->
-      <button class="nav-toggle" aria-label="Toggle navigation menu" id="nav-toggle">
+            <!-- Mobile Hamburger Button -->
+            <button class="nav-toggle" aria-label="Toggle navigation menu" id="nav-toggle">
         <span></span>
         <span></span>
         <span></span>
       </button>
-    </div>
-  </header>
-
-  <!-- ==================== MAIN CONTENT ==================== -->
-  <main>
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="container hero-content">
-        <div class="hero-badge">Explore • Learn • Share</div>
-        <h1 class="hero-title">
-          Share Your <span class="highlight">Ideas</span> With The World
-        </h1>
-        <p class="hero-subtitle">
-          A blogging platform built for students and beginner developers to share technical tutorials, project experiences, and programming concepts.
-        </p>
-        <div class="hero-actions">
-          <a href="#featured-articles" class="btn btn-primary btn-lg">Explore Blogs</a>
-          <a href="create-blog.html" class="btn btn-outline btn-lg">Start Writing</a>
         </div>
+    </header>
 
-        <!-- Realistic Project Highlights -->
-        <div class="hero-highlights">
-          <div class="highlight-item">
-            <strong>Frontend Only</strong>
-            <span>Pure HTML5, CSS3 & JavaScript</span>
-          </div>
-          <div class="highlight-item">
-            <strong>LocalStorage Data</strong>
-            <span>No backend or database needed</span>
-          </div>
-          <div class="highlight-item">
-            <strong>Responsive UI</strong>
-            <span>Works on mobile, tablet & desktop</span>
-          </div>
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-badge">Explore • Learn • Share</div>
+                <h1 class="hero-title">
+                    Share Your <span class="highlight">Ideas</span> With The World
+                </h1>
+                <p class="hero-subtitle">
+                    A blogging platform built for students and beginner developers to share technical tutorials, project experiences, and programming concepts.
+                </p>
+                <div class="hero-actions">
+                    <a href="#featured-articles" class="btn btn-primary btn-lg">Explore Blogs</a>
+                    <a href="create-blog.html" class="btn btn-outline btn-lg">Start Writing</a>
+                </div>
+
+                <!-- Realistic Project Highlights -->
+                <div class="hero-highlights">
+                    <div class="highlight-item">
+                        <strong>Frontend Only</strong>
+                        <span>Pure HTML5, CSS3 & JavaScript</span>
+                    </div>
+                    <div class="highlight-item">
+                        <strong>LocalStorage Data</strong>
+                        <span>No backend or database needed</span>
+                    </div>
+                    <div class="highlight-item">
+                        <strong>Responsive UI</strong>
+                        <span>Works on mobile, tablet & desktop</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Articles Section -->
+        <section class="section" id="featured-articles">
+            <div class="container">
+                <div class="section-title-wrap">
+                    <span class="section-badge">Recent Posts</span>
+                    <h2 class="section-title">Featured Articles</h2>
+                    <p class="section-desc">Practical tutorials, project write-ups, and student learning journeys.</p>
+                </div>
+
+                <!-- Populated dynamically by script.js -->
+                <div class="blogs-grid" id="featured-blogs-grid"></div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="section" style="background-color: var(--bg-surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+            <div class="container">
+                <div class="section-title-wrap">
+                    <span class="section-badge">Topics</span>
+                    <h2 class="section-title">Explore by Category</h2>
+                    <p class="section-desc">Browse blogs organized by key programming and college topics.</p>
+                </div>
+
+                <!-- Populated dynamically by script.js with interactive filtering -->
+                <div class="categories-container" id="home-categories-list">
+                    <button type="button" class="category-chip active" data-category="All">All</button>
+                    <button type="button" class="category-chip" data-category="Web Development">Web Development</button>
+                    <button type="button" class="category-chip" data-category="JavaScript">JavaScript</button>
+                    <button type="button" class="category-chip" data-category="Programming">Programming</button>
+                    <button type="button" class="category-chip" data-category="Technology">Technology</button>
+                    <button type="button" class="category-chip" data-category="Student Life">Student Life</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Natural Call to Action Section -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-banner">
+                    <h2>Have something to share?</h2>
+                    <p>Write about what you are learning, building, or exploring in your coding journey.</p>
+                    <a href="create-blog.html" class="btn btn-primary btn-lg">Create Your First Blog</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand">
+                        <div class="brand-icon">✍</div>
+                        <span>Blog<span class="accent">Space</span></span>
+                    </a>
+                    <p>A simple responsive blog application built with HTML5, CSS3, and Vanilla JavaScript.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="create-blog.html">Create Blog</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Register</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Technology</h4>
+                    <ul class="footer-links">
+                        <li><span>HTML5</span></li>
+                        <li><span>CSS3</span></li>
+                        <li><span>JavaScript</span></li>
+                        <li><span>LocalStorage</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 BlogSpace. A simple responsive blog application.</p>
+                <p>Built with HTML5, CSS3 & JavaScript</p>
+            </div>
         </div>
-      </div>
-    </section>
+    </footer>
 
-    <!-- Featured Articles Section -->
-    <section class="section" id="featured-articles">
-      <div class="container">
-        <div class="section-title-wrap">
-          <span class="section-badge">Recent Posts</span>
-          <h2 class="section-title">Featured Articles</h2>
-          <p class="section-desc">Practical tutorials, project write-ups, and student learning journeys.</p>
-        </div>
-
-        <!-- Populated dynamically by script.js -->
-        <div class="blogs-grid" id="featured-blogs-grid"></div>
-      </div>
-    </section>
-
-    <!-- Categories Section -->
-    <section class="section" style="background-color: var(--bg-surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-      <div class="container">
-        <div class="section-title-wrap">
-          <span class="section-badge">Topics</span>
-          <h2 class="section-title">Explore by Category</h2>
-          <p class="section-desc">Browse blogs organized by key programming and college topics.</p>
-        </div>
-
-        <!-- Populated dynamically by script.js with interactive filtering -->
-        <div class="categories-container" id="home-categories-list">
-          <button type="button" class="category-chip active" data-category="All">All</button>
-          <button type="button" class="category-chip" data-category="Web Development">Web Development</button>
-          <button type="button" class="category-chip" data-category="JavaScript">JavaScript</button>
-          <button type="button" class="category-chip" data-category="Programming">Programming</button>
-          <button type="button" class="category-chip" data-category="Technology">Technology</button>
-          <button type="button" class="category-chip" data-category="Student Life">Student Life</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Natural Call to Action Section -->
-    <section class="section">
-      <div class="container">
-        <div class="cta-banner">
-          <h2>Have something to share?</h2>
-          <p>Write about what you are learning, building, or exploring in your coding journey.</p>
-          <a href="create-blog.html" class="btn btn-primary btn-lg">Create Your First Blog</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ==================== FOOTER ==================== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="brand">
-            <div class="brand-icon">✍</div>
-            <span>Blog<span class="accent">Space</span></span>
-          </a>
-          <p>A simple responsive blog application built with HTML5, CSS3, and Vanilla JavaScript.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Navigation</h4>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="create-blog.html">Create Blog</a></li>
-            <li><a href="dashboard.html">Dashboard</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="register.html">Register</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Technology</h4>
-          <ul class="footer-links">
-            <li><span>HTML5</span></li>
-            <li><span>CSS3</span></li>
-            <li><span>JavaScript</span></li>
-            <li><span>LocalStorage</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2026 BlogSpace. A simple responsive blog application.</p>
-        <p>Built with HTML5, CSS3 & JavaScript</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Application Script -->
-  <script src="js/script.js"></script>
+    <!-- Application Script -->
+    <script src="js/script.js"></script>
 </body>
+
 </html>
