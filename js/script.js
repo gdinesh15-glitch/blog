@@ -131,15 +131,36 @@ const DEFAULT_DEMO_USER = {
 // 2. STORAGE INITIALIZATION
 // ==========================================================================
 function initStorage() {
-    const storedBlogs = localStorage.getItem(STORAGE_KEYS.BLOGS);
-    // Re-seed if empty or if old format with fictional non-student titles
-    if (!storedBlogs || JSON.parse(storedBlogs).length === 0 || storedBlogs.includes('Alex Rivera')) {
-        localStorage.setItem(STORAGE_KEYS.BLOGS, JSON.stringify(DEFAULT_BLOGS));
+    try {
+        const storedBlogs = localStorage.getItem(STORAGE_KEYS.BLOGS);
+        // Re-seed if empty or if old format with fictional non-student titles
+        if (!storedBlogs || JSON.parse(storedBlogs).length === 0 || storedBlogs.includes('Alex Rivera')) {
+            localStorage.setItem(STORAGE_KEYS.BLOGS, JSON.stringify(DEFAULT_BLOGS));
+        }
+    } catch (e) {
+        try {
+            localStorage.setItem(STORAGE_KEYS.BLOGS, JSON.stringify(DEFAULT_BLOGS));
+        } catch (_) {}
     }
 
-    const storedUsers = localStorage.getItem(STORAGE_KEYS.USERS);
-    if (!storedUsers || JSON.parse(storedUsers).length === 0) {
-        localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify([DEFAULT_DEMO_USER]));
+    try {
+        const storedUsers = localStorage.getItem(STORAGE_KEYS.USERS);
+        let users = storedUsers ? JSON.parse(storedUsers) : [];
+        if (!Array.isArray(users)) users = [];
+
+        const demoIdx = users.findIndex(u => u.email && u.email.toLowerCase() === DEFAULT_DEMO_USER.email.toLowerCase());
+        if (demoIdx === -1) {
+            users.unshift(DEFAULT_DEMO_USER);
+        } else {
+            // Guarantee password matches password123 for demo
+            users[demoIdx].password = DEFAULT_DEMO_USER.password;
+            users[demoIdx].name = users[demoIdx].name || DEFAULT_DEMO_USER.name;
+        }
+        localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(users));
+    } catch (e) {
+        try {
+            localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify([DEFAULT_DEMO_USER]));
+        } catch (_) {}
     }
 }
 
@@ -285,7 +306,7 @@ const BlogManager = {
             title: title.trim(),
             category: category.trim(),
             author: author.trim(),
-            authorEmail: authorEmail || (AuthManager.getCurrentUser() ? .email || 'demo@blogspace.com'),
+            authorEmail: authorEmail || (AuthManager.getCurrentUser()?.email || 'demo@blogspace.com'),
             createdAt: new Date().toISOString(),
             imageUrl: (imageUrl && imageUrl.trim().startsWith('http')) ? imageUrl.trim() : fallbackImage,
             description: description,
@@ -770,7 +791,7 @@ function initCreateBlogPage() {
             e.preventDefault();
 
             const title = document.getElementById('blog-title').value.trim();
-            const author = authorInput ? authorInput.value.trim() : (currentUser ? .name || 'Student');
+            const author = authorInput ? authorInput.value.trim() : (currentUser?.name || 'Student');
             const category = document.getElementById('blog-category').value;
             const imageUrl = imageInput ? imageInput.value.trim() : '';
             const content = document.getElementById('blog-content').value.trim();
@@ -1057,17 +1078,17 @@ function clearFormErrors() {
 document.addEventListener('DOMContentLoaded', () => {
     updateNavbar();
 
-    const path = window.location.pathname.split('/').pop() || 'index.html';
+    const path = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
 
-    if (path === 'index.html' || path === '') {
-        initHomePage();
-    } else if (path === 'create-blog.html') {
-        initCreateBlogPage();
-    } else if (path === 'dashboard.html') {
-        initDashboardPage();
-    } else if (path === 'login.html') {
+    if (document.getElementById('login-form') || path === 'login.html') {
         initLoginPage();
-    } else if (path === 'register.html') {
+    } else if (document.getElementById('register-form') || path === 'register.html') {
         initRegisterPage();
+    } else if (document.getElementById('create-blog-form') || path === 'create-blog.html') {
+        initCreateBlogPage();
+    } else if (document.getElementById('user-welcome-name') || path === 'dashboard.html') {
+        initDashboardPage();
+    } else if (document.getElementById('featured-articles-list') || path === 'index.html' || path === '') {
+        initHomePage();
     }
 });
